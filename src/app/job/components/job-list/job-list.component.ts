@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { JobService } from '../../services/job.service';
 
 @Component({
@@ -6,6 +6,12 @@ import { JobService } from '../../services/job.service';
   templateUrl: './job-list.component.html',
   styleUrls: ['./job-list.component.scss'],
 })
-export class JobListComponent {
+export class JobListComponent implements OnInit {
+  jobs: Job[] = [];
+
   constructor(private jobSvc: JobService) {}
+
+  ngOnInit() {
+    // this.jobSvc.fetchAllJobs().subscribe();
+  }
 }
